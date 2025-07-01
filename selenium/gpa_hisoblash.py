@@ -62,7 +62,7 @@ jami_page=math.ceil(jami_talaba/50)
 print(f"total_page : {jami_page}")
 time.sleep(1)
 
-
+ 
 for page in range(1,jami_page+1):
     try:
         print(page)    
