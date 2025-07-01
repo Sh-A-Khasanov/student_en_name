@@ -18,7 +18,7 @@ HEADERS = {"Authorization": f"Bearer {api_key}"}
 conn = sqlite3.connect("hemis_api.db")
 cursor = conn.cursor()
 
-
+ 
 # Jadval yaratish (status_api ustuni qo'shildi)
 cursor.execute('''
 CREATE TABLE IF NOT EXISTS student_list (

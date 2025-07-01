@@ -2,4 +2,3 @@
 # Environments
 .env
 .venv
-config.json
