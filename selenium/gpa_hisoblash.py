@@ -11,7 +11,7 @@ from selenium.webdriver.support import expected_conditions as EC
 import time
 import json
 import re
-
+import math
 
 
 uquv_yili = 2024  # Talaba filtrlari shu yildaki talabalarni chiqaradi
@@ -56,13 +56,14 @@ jami_talabani_olish = driver.find_element(By.XPATH, "/html/body/div/div[2]/secti
 match = re.search(r'jami\s([\d\s]+)\sta', jami_talabani_olish)
 if match:
     jami_talaba = int(match.group(1).replace(" ", ""))
-    print(jami_talaba)  # 21286
+    print(f"jami_talaba : {jami_talaba}")  # 21286
 
-jami_page=int(jami_talaba/50)+1
+jami_page=math.ceil(jami_talaba/50)
+print(f"total_page : {jami_page}")
 time.sleep(1)
 
 
-for page in range(1,jami_page):
+for page in range(1,jami_page+1):
     try:
         print(page)    
         driver.get(f"{otm_url}performance/gpa-add?page={page}&per-page=50&EStudentGpaMeta%5B_education_year%5D={uquv_yili}")
