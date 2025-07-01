@@ -37,7 +37,7 @@ with open("config.json", "r") as file:
     config = json.load(file)
 
 driver.get(config["otm_url"])  
-
+ 
 # Login va parolni kiritish
 login_value = config["login"]
 parol_value = config["parol"]
