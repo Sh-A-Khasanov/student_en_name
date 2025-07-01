@@ -1,3 +1,8 @@
+###############################################################
+#   uquv_yili ga tegishli bo`lgan talabalarning
+#   uquv_yili_uchun yildaki GPA sini hisoblaydi
+###############################################################
+
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.alert import Alert

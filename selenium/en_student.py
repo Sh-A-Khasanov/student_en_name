@@ -1,3 +1,8 @@
+###############################################################
+# Bazadaki talabalarni diplom ilovasiga chiqaradigan F.I.O larni 
+# transliterate funksyasi tartibda inglizcha o'zgartirib chiqadi
+###############################################################
+
 import sqlite3
 from selenium import webdriver
 from selenium.webdriver.common.by import By
