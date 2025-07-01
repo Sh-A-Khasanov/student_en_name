@@ -1,23 +1,56 @@
 from openpyxl import load_workbook
+from openpyxl.styles import Font
+from openpyxl.styles import Font, Alignment
 
 excel_nomi = 'selenium/aylanma_varaqa/talaba_aylanma.xlsx'
 # Excel faylini o'qing
 wb = load_workbook(excel_nomi)
 
 # Yangi list oching, agar mavjud bo'lmasa
+list_name = "Statistika-tasdiqlanmagan"
 if 'Statistika' not in wb.sheetnames:
-    wb.create_sheet(title='Statistika-tasdiqlanmagan')
-sheet = wb['Statistika']
+    wb.create_sheet(title=list_name)
+sheet = wb[list_name]
+# C1 dan H1 gacha bo‘lgan kataklarni birlashtiramiz
+sheet.merge_cells('C1:H1')
+sheet.merge_cells('A1:A2')
+sheet.merge_cells('B1:B2')
+
+bold_font = Font(bold=True)
+
+# Masalan, A1 dan A100 gacha bold qilish
+for row in range(1, 20):
+    for col in ['A', 'B']:
+        sheet[f"{col}{row}"].font = bold_font
+
+
+# Jirni  qilish
+bold_font = Font(bold=True)
+sheet['C1'].font = bold_font
+sheet['A1'].font = bold_font
+# Birlashtirilgan katakka matn yozamiz
+sheet['C1'] = 'Tasdiqlanmagan'
+sheet['C1'].alignment = Alignment(horizontal='center', vertical='center')
+sheet['A1'].alignment = Alignment(horizontal='center', vertical='center')
+sheet['B1'].alignment = Alignment(horizontal='center', vertical='center')
+
+from openpyxl.styles import Font
+
+bold_font = Font(bold=True)
+
+for col in ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H']:
+    sheet[f"{col}1"].font = bold_font
+    sheet[f"{col}2"].font = bold_font
 
 # Sarlavhalarni yozing
 sheet['A1'] = 'Fakultet'
 sheet['B1'] = 'Jami talaba'
-sheet['C1'] = 'Registrator ofisi'
-sheet['D1'] = 'Dekan'
-sheet['E1'] = 'Marketing'
-sheet['F1'] = 'Buxgalteriya'
-sheet['G1'] = 'Kutubxona'
-sheet['H1'] = 'Yotoqxona'
+sheet['C2'] = 'Registrator ofisi'
+sheet['D2'] = 'Dekan'
+sheet['E2'] = 'Marketing'
+sheet['F2'] = 'Buxgalteriya'
+sheet['G2'] = 'Kutubxona'
+sheet['H2'] = 'Yotoqxona'
 
 # Har bir fakultetdagi talabalar sonini va tasdiqlanmaganlarni hisoblash
 fakultetlar = {}
@@ -38,7 +71,7 @@ for row in wb['Talabalar'].iter_rows(min_row=2, values_only=True):
                     tasdiqlanmagan[key][fakultet] = tasdiqlanmagan[key].get(fakultet, 0) + 1
 
 # Ma'lumotlarni Excelga yozing
-row_num = 2
+row_num = 3
 for fakultet, soni in fakultetlar.items():
     sheet[f'A{row_num}'] = fakultet
     sheet[f'B{row_num}'] = (fakultetlar[fakultet])/ 6  # G ustunidagi son
