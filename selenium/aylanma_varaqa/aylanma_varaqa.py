@@ -39,6 +39,8 @@ else:
     sheet['F1'] = 'Ikonka'
     sheet['G1'] = 'Fakultet'
     sheet['H1'] = 'Izoh'
+    sheet['I1'] = 'Tasdiq holati'
+
 
     excel_qator = 2  # Yangi fayl uchun 2-qator
     wb.save(excel_nomi)
@@ -139,6 +141,22 @@ for fakultet_id, fakultet_name in fakultetlar:
                 td_roles = tr.find_all('td')[5]
                 roles = td_roles.select('span.badge, a > span.badge')
 
+                # Tasdiq tugmasi <a> tegi
+                tasdiq_qismi = tr.find_all('td')[6]  # 7-ustun
+
+                a_tag = tasdiq_qismi.find('a', href=True)
+                tasdiq_href = a_tag['href']
+
+                # value=1 -> Tasdiqlangan, value=0 -> Tasdiqlanmagan
+                if 'value=1' in tasdiq_href:
+                    tasdiq_holati = "Tasdiqlangan"
+                elif 'value=0' in tasdiq_href:
+                    tasdiq_holati = "Tasdiqlanmagan"
+                else:
+                    tasdiq_holati = "Nomaʼlum"
+
+
+
                 for badge in roles:
                     role_text = badge.get_text(strip=True)
                     class_list = badge.get('class', [])
@@ -155,12 +173,16 @@ for fakultet_id, fakultet_name in fakultetlar:
                     sheet[f'F{excel_qator}'] = icon_str
                     sheet[f'G{excel_qator}'] = fakultet_name
                     sheet[f'H{excel_qator}'] = comment
+                    sheet[f'I{excel_qator}'] = tasdiq_holati
+
                     excel_qator += 1
 
             print(f"{fakultet_name} => {page} / {total_page} sahifa saqlandi")
-            wb.save(excel_nomi)
     except:
         print("Xatolik")
+wb.save(excel_nomi)
+time.sleep(2)
+print("saqlandi")
 driver.quit()
 # asosiy kod tugaganidan keyin quyidagini qo‘shing
 subprocess.run(["python", "selenium/aylanma_varaqa/statistika.py"])
