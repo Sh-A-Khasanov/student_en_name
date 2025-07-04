@@ -1,3 +1,12 @@
+###############################################################
+#   hemis_api.db sqlitega student-list tableda barcha 
+#   talabalarning malumotlari yi'g'iladi. Shu asosida 
+#   boshqa kodlar ishlaydi _student_status = 11 faqat 
+#   O'QIMOQDA statustdaki talabalarni oladi = -1 barchasini oladi
+###############################################################
+
+
+
 import requests
 # pip install mysql-connector-python
 import time
