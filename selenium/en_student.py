@@ -143,7 +143,7 @@ print("Barcha sahifalar ochildi!")
 driver.quit()
 
 
-
+ 
 # # Talaba ID sini log.txt ga yozish (yozib borish rejimi 'a')
 # with open(log_file, "a", encoding="utf-8") as log:
 #     log.write(student_id + "\n")
