@@ -3,6 +3,7 @@
 #   keladigan barcha malumotlarni olib bazaga yoz bazaga yozadi 
 ###############################################################
 
+
 import requests
 import sqlite3
 import time
