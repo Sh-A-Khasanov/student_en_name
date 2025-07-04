@@ -10,7 +10,7 @@ from openpyxl import load_workbook, Workbook
 import json
 import math
 import subprocess
-
+ 
 
                     # 2025 bu 2024-2025 o'quv yili hisoblanadi
 uquv_yili = 2024    # 2024 bu 2024-2025 o'quv yili hisoblanadi
