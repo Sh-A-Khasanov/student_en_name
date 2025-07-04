@@ -38,7 +38,7 @@ class Logger:
     def flush(self):
         self.konsol.flush()
         self.fayl.flush()
-
+ 
 sys.stdout = Logger('log_Fanga_biriktirish.txt')
 
 options = webdriver.ChromeOptions()
