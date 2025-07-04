@@ -1,3 +1,11 @@
+###############################################################
+#   Bitiruvchi talabalarga yaratilgan aylanma varaqalardan
+#   6ta rol kesimida tasdiqlangani yoki tasdiqlanmaganini
+#   barchasini excelga yozadigan statistika.py esa statistikasini 
+#   chiqaradi. aylanma_varaqa.py ishga tushiriladi keyin esa statistika.py
+###############################################################
+
+
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
