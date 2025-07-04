@@ -48,8 +48,9 @@ parol = driver.find_element(By.NAME, "FormAdminLogin[password]")
 parol.send_keys(parol_value)
 time.sleep(15)  # Sayt yuklanishini kutish va kirish tugmasini bosish uchun vaqt
 
+db_name = config["db_name"]
 # Ma'lumotlar bazasiga ulanish
-conn = sqlite3.connect("hemis_api.db")
+conn = sqlite3.connect(db_name)
 cursor = conn.cursor()
 
 # Talabalar ro'yxatini olish
@@ -65,7 +66,7 @@ print(f"Jami ID lar soni: {len(students)}")
 
 
 
-log_file = "log.txt"  # Log fayl nomi
+log_file = "log_en_student.txt"  # Log fayl nomi
 
 
 

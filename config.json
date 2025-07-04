@@ -2,7 +2,8 @@
 {
     "student_otm_url" : "https://student.buxdu.uz/",
     "otm_url" : "https://hemis.buxdu.uz/",
-    "api_key": "QiuimPC4C2******",
+    "api_key": "g09JOI2RTkgIx******",
     "login": "admin",
-    "parol": "admin"
+    "parol": "admin",
+    "db_name" : "hemis_api.db"
 }

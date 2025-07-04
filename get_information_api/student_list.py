@@ -13,9 +13,9 @@ BASE_URL = f"{config['student_otm_url']}rest/v1/data/student-list"  # API manzil
 api_key = config["api_key"]
 HEADERS = {"Authorization": f"Bearer {api_key}"}
 
-# MySQL bazaga ulanish
+db_name = config["db_name"]
 # SQLite bazaga ulanish
-conn = sqlite3.connect("hemis_api.db")
+conn = sqlite3.connect(db_name)
 cursor = conn.cursor()
 
  
@@ -112,7 +112,7 @@ conn.commit()
 def fetch_data(page):
     """API'dan ma'lumot olish"""
     # params = {"page": page, "limit": 200, "_student_status": 11,"_curriculum":67 }
-    params = {"page": page, "limit": 200, "_student_status": -1 }
+    params = {"page": page, "limit": 200, "_student_status": 11 }
     response = requests.get(BASE_URL, headers=HEADERS, params=params)
     if response.status_code == 200:
         return response.json()
