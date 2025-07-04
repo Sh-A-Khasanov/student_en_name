@@ -2,3 +2,4 @@
 # Environments
 .env
 .venv
+hemis_api.db
