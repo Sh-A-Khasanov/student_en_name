@@ -89,7 +89,7 @@ for page in range(1,jami_page+1):
         time.sleep(1)
     except Exception as e:
         print("❌ Xatolik:\n\n", e)
-
+ 
 
 print("Barcha GPA hisoblandi!")
 driver.quit()
