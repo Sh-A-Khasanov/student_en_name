@@ -10,7 +10,6 @@ from selenium.webdriver.common.by import By
 import time
 import json
 
-
 # Selenium sozlamalari
 options = webdriver.ChromeOptions()
 options.add_argument("--log-level=3")  # Faqat muhim xatolar chiqadi
