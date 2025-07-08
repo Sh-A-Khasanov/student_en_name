@@ -2,3 +2,4 @@
 .venv
 hemis_api.db
 config.json
+config_file.json
